@@ -1,6 +1,6 @@
 package ar.edu.uns.cs.tdp.sockets.pruebas;
 
-//imports necesarios para sockets y envio/recepcion de datos
+//imports necesarios para sockets y envio/recepcion de datos.
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.io.*;
@@ -62,11 +62,11 @@ public class Cliente extends JFrame {
 			
 			printGUI("Se crearon buffers de datos de entrada y salida (para tipos simples) con el servidor conectado");
 			
-			printGUI("\nProbando recepción de número real:");
+			printGUI("\nProbando recepciÃ³n de nÃºmero real:");
 			double d = bufferEntrada.readDouble();
 			printGUI("Recibido "+d+"\n");
 			
-			// Envío y recepción de string
+			// EnvÃ­o y recepciÃ³n de string
 			charlaMonorriel(bufferEntrada,bufferSalida);
 			
 			Thread.sleep(5000);
@@ -79,13 +79,13 @@ public class Cliente extends JFrame {
 			
 			Thread.sleep(1000);
 			
-			// Envío y recepción de objetos
+			// EnvÃ­o y recepciÃ³n de objetos
 			irAlNutricionista(bufferEntradaObj,bufferSalidaObj);
 			
 			Thread.sleep(1000);
 			
 			// Enviar mensajes al servidor
-			printGUI("\nEnviar mensajes al servidor...\nEscribiendo 'close' se cerrará el socket y terminará la conexión.");
+			printGUI("\nEnviar mensajes al servidor...\nEscribiendo 'close' se cerrarÃ¡ el socket y terminarÃ¡ la conexiÃ³n.");
 			// Creo buffer salida
 			out = new PrintWriter(miSocket.getOutputStream(),true);
 			lblEscribirYPresionar.setEnabled(true);
@@ -146,7 +146,7 @@ public class Cliente extends JFrame {
 		
 		Thread.sleep(1200);
 		
-		env = "Batman es un científico."; 
+		env = "Batman es un cientÃ­fico."; 
 		bufferSalida.writeUTF(env);
 		//out.println(env);
 		printGUI("YO> \""+env+"\"");
@@ -162,7 +162,7 @@ public class Cliente extends JFrame {
 	private void irAlNutricionista(ObjectInputStream bufferEntradaObj, ObjectOutputStream bufferSalidaObj) throws IOException, InterruptedException, ClassNotFoundException {
 		Persona p = new Persona("Barney","Gumble",39,27654231,132.87f);
 		printGUI("Persona creada: \n"+p.toString());
-		// Envío objeto
+		// EnvÃ­o objeto
 		bufferSalidaObj.writeObject(p);
 		printGUI("\nPersona enviada al nutricionista...\n");
 		Thread.sleep(3000);
